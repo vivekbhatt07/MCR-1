@@ -10,14 +10,22 @@ const Search = () => {
     <div className="bg-blue-950 max-w-[1280px] px-6 flex flex-col gap-12 w-full min-h-screen">
       <input
         type="search"
-        className="text-blue-950 mt-6 w-96 mx-auto"
-        onChange={(event) =>
-          dispatch({ type: "SEARCH_TYPE", payload: event.target.value })
-        }
+        value={searchInput}
+        className="text-blue-950 mt-6 w-96 mx-auto p-4 rounded-md"
+        onChange={(event) => {
+          setSearchInput(event.target.value);
+          dispatch({ type: "SEARCH_TYPE", payload: event.target.value });
+        }}
+        placeholder="Search for books..."
       />
 
       <div className="">
-        {state.filteredBookItems.length === 0 ? (
+        {searchInput.length === 0 && (
+          <div className="text-blue-50 text-center text-4xl mx-auto">
+            SEARCH TO EXPLORE BOOKS
+          </div>
+        )}
+        {state.filteredBookItems.length === 0 && searchInput.length > 0 ? (
           <div className="text-blue-50 text-center text-4xl mx-auto">
             NO DATA FOUND
           </div>

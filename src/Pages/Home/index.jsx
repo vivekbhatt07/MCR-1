@@ -6,6 +6,7 @@ import BookCard from "../../Component/BookCard";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 
 const About = () => {
   const { state, dispatch } = useData();
@@ -13,6 +14,10 @@ const About = () => {
 
   return (
     <div className="bg-blue-950 max-w-[1280px] px-6 flex flex-col gap-12 py-16">
+      <h1 className="text-center text-6xl flex gap-4 mx-auto items-center">
+        📚<span>MY LIBRARY</span>
+      </h1>
+
       <div className="flex justify-center">
         <Button
           variant="contained"
@@ -23,28 +28,7 @@ const About = () => {
           Search Books
         </Button>
       </div>
-
-      <h1 className="text-center text-6xl">BOOKS</h1>
       <div className="flex flex-col gap-12">
-        <section className="w-full flex flex-col gap-6 bg-blue-600 p-12">
-          <h2 className="text-center text-4xl font-normal bg-[#000] rounded-md p-4">
-            None
-          </h2>
-          <div className="flex flex-wrap justify-between">
-            {state.bookItems
-              .filter((currentBook) => {
-                return currentBook.status == "none";
-              })
-              .map((currentFilteredBook) => {
-                return (
-                  <BookCard
-                    {...currentFilteredBook}
-                    key={currentFilteredBook._id}
-                  />
-                );
-              })}
-          </div>
-        </section>
         <section className="w-full flex flex-col gap-6">
           <h2 className="text-center text-4xl font-normal bg-[#000] rounded-md p-4">
             Want to Read

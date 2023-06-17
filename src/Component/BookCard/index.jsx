@@ -29,7 +29,7 @@ const BookCard = (props) => {
             payload: { id: props?._id, readStatus: event.target.value },
           });
         }}
-        className="text-blue-950 mt-auto"
+        className="text-blue-950 mt-auto p-2"
         defaultValue={props?.status}
         value={selectedShelf}
       >
