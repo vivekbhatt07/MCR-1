@@ -12,6 +12,18 @@ const About = () => {
   const { state, dispatch } = useData();
   const navigate = useNavigate();
 
+  const wantToReadCount = state.bookItems.filter((currentBook) => {
+    return currentBook.status == "want";
+  }).length;
+
+  const readCount = state.bookItems.filter((currentBook) => {
+    return currentBook.status == "read";
+  }).length;
+
+  const currentReadCount = state.bookItems.filter((currentBook) => {
+    return currentBook.status == "current";
+  }).length;
+
   return (
     <div className="bg-blue-950 max-w-[1280px] px-6 flex flex-col gap-12 py-16">
       <h1 className="text-center text-6xl flex gap-4 mx-auto items-center">
@@ -31,7 +43,7 @@ const About = () => {
       <div className="flex flex-col gap-12">
         <section className="w-full flex flex-col gap-6">
           <h2 className="text-center text-4xl font-normal bg-[#000] rounded-md p-4">
-            Want to Read
+            Want to Read ({wantToReadCount})
           </h2>
           <div className="flex flex-wrap gap-3 justify-between">
             {state.bookItems
@@ -50,7 +62,7 @@ const About = () => {
         </section>
         <section className="w-full flex flex-col gap-6">
           <h2 className="text-center text-4xl font-normal bg-[#000] rounded-md p-4">
-            Currently Reading
+            Currently Reading ({currentReadCount})
           </h2>
           <div className="flex flex-wrap gap-3 justify-between">
             {state.bookItems
@@ -69,7 +81,7 @@ const About = () => {
         </section>
         <section className="w-full flex flex-col gap-6">
           <h2 className="text-center text-4xl font-normal bg-[#000] rounded-md p-4">
-            Already Read
+            Already Read ({readCount})
           </h2>
           <div className="flex flex-wrap gap-3 justify-between">
             {state.bookItems
