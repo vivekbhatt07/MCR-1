@@ -22,7 +22,7 @@ const Search = () => {
             NO DATA FOUND
           </div>
         ) : (
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3 justify-center">
             {state.filteredBookItems.map((currentBook) => {
               return <BookCard {...currentBook} key={currentBook._id} />;
             })}

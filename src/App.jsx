@@ -6,7 +6,7 @@ import { Home, Search } from "./Pages";
 
 function App() {
   return (
-    <div className="flex justify-center text-blue-50">
+    <div className="flex justify-center text-blue-50 bg-[#aaa]">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
